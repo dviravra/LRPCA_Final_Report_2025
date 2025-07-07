@@ -5,8 +5,8 @@ Contains two **training** scripts in Python and two **testing/inference** script
 
 | Data type | Train script (Python) | Output after training | Test script (MATLAB) | Extra input for test |
 |-----------|----------------------|-----------------------|----------------------|----------------------|
-| **Synthetic** | `python/training_codes_F1.py` | `synthetic_params.mat`, `synthetic_demo_data.mat` | `matlab/LearnedRPCA_demo.m` | `synthetic_demo_data.mat` + `synthetic_params.mat` |
-| **Real video** | `python/training_LRPCA_real_data_F2.py` | `real_video_params.mat` | `matlab/LearnedRPCA_demo.m` (same) | Real‐video clip from [KITWARE collection](https://data.kitware.com/#collection/56f56db28d777f753209ba9f/folder/56f570368d777f753209baac) + `real_video_params.mat` |
+| **Synthetic** | `python/training_codes_synthetic_data.ipynb` | `synthetic_params.mat`, `synthetic_data.mat` | `matlab/testing_codes_matlab_model_based_F1.m` | `synthetic_data.mat` + `synthetic_params.mat` |
+| **Real video** | `python/training_LRPCA_real_data.ipynb` | `real_video_params.mat` | `matlab/tasting_model_based_real_data.m` | Real‐video clip from [KITWARE collection](https://data.kitware.com/#collection/56f56db28d777f753209ba9f/folder/56f570368d777f753209baac) + `real_video_params.mat` |
 
 ---
 
@@ -14,12 +14,27 @@ Contains two **training** scripts in Python and two **testing/inference** script
 
 ```bash
 # 1. Python environment
-python -m venv venv && source venv/bin/activate          # or use conda
+python -m venv venv && source venv/bin/activate    # or use conda
 pip install -r requirements.txt
 
-# 2. Train on synthetic data
-python python/training_codes_F1.py        # saves *.mat files for MATLAB test
+# === Synthetic data ===
+# (choose one)
 
-# 3. Train on real video
+# 2A. Notebook (interactive)
+jupyter notebook training_codes_synthetic_data.ipynb
+
+# 2B. Script (non-interactive)
+python python/training_codes_F1.py        # saves synthetic_params.mat + data
+
+# === Real video ===
+# (choose one)
+
+# 4A. Notebook (interactive)
+jupyter notebook training_LRPCA_real_data.ipynb         # prompts for video
+
+# 4B. Script (non-interactive)
 python python/training_LRPCA_real_data_F2.py \
-    --video_path path/to/real_video.mp4   # see dataset link above
+    --video_path path/to/real_video.mp4                 # dataset link above
+
+
+אני רק צריך שתחליף לי את הפסקה הזאת לאפשרות להריץ גם 
