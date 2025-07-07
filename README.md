@@ -36,5 +36,3 @@ jupyter notebook training_LRPCA_real_data.ipynb         # prompts for video
 python python/training_LRPCA_real_data_F2.py \
     --video_path path/to/real_video.mp4                 # dataset link above
 
-
-אני רק צריך שתחליף לי את הפסקה הזאת לאפשרות להריץ גם 
